@@ -1,0 +1,2 @@
+class MeetupTime < ApplicationRecord
+end
