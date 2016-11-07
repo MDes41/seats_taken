@@ -34,4 +34,21 @@ RSpec.describe 'User' do
     expect(page).to have_content("Phone can't be blank")
     expect(page).to have_content("Password confirmation can't be blank")
   end
+
+  it 'can logout' do
+    visit root_path
+    click_on 'Create a New Account'
+    expect(current_path).to eq(new_user_path)
+    fill_in 'user_name', with: 'New User'
+    fill_in 'user_email', with: 'newuser@example.com'
+    fill_in 'user_phone', with: '3035555555'
+    fill_in 'user_password', with: 'test'
+    fill_in 'user_password_confirmation', with: 'test'
+    click_on 'Create Account'
+
+    expect(page).to have_content('Logout')
+
+    click_on 'Logout'
+    expect(current_path).to eq(root_path)
+  end
 end

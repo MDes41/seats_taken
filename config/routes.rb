@@ -3,10 +3,11 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  delete '/login', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy'
 
-  resources :users, only: [:new, :create]
-    resoureses :destinations, only: [:index]
+
+  resources :users, only: [:new, :create] do
+    resources :destinations, only: [:index]
   end
 
   get '/dashboard', to: 'dashboard#index'

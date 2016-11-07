@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Driver' do
-  it 'can pick a destinaion' do
+  xit 'can pick a destinaion' do
     user = create :user
     Destination.create(name: 'Arapahoe Basin')
     Destination.create(name: 'Beaver Creek')
