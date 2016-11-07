@@ -1,6 +1,9 @@
 FactoryGirl.define do
   factory :user do
-    name "MyString"
-    role "MyString"
+    name  Faker::Name.name
+    email Faker::Internet.email
+    phone Faker::PhoneNumber.cell_phone
+    password 'test'
+    role 0
   end
 end
